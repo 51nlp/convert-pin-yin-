@@ -1,0 +1,21 @@
+{
+    "name": "51nlp/convertPinYin",
+    "description":"PHP中文拼音转换类UTF8(a chinese characters convert chinese pinyin class base on php) ",
+    "keywords":["utils","pinyin","convert","拼音"],
+    "type":"library",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"wcpsoft",
+            "email": "admin@wcpsoft.cn",
+            "homepage":"http://www.51nlp.cn"
+        }
+    ],
+    "homepage": "https://github.com/51nlp/convertPinYin",
+    "require":{
+        "php":">=5.3.9"
+    },
+    "autoload": {
+        "psr-4": { "Utils\\": "utils" }
+    }
+}
