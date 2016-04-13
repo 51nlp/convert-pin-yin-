@@ -1,5 +1,5 @@
 {
-    "name": "51nlp/convertPinYin",
+    "name": "51nlp/convert-pin-yin",
     "description":"PHP中文拼音转换类UTF8(a chinese characters convert chinese pinyin class base on php) ",
     "keywords":["utils","pinyin","convert","拼音"],
     "type":"library",
@@ -11,7 +11,7 @@
             "homepage":"http://www.51nlp.cn"
         }
     ],
-    "homepage": "https://github.com/51nlp/convertPinYin",
+    "homepage": "https://github.com/51nlp/convert-pin-yin",
     "require":{
         "php":">=5.3.9"
     },
