@@ -1,5 +1,5 @@
 <?php
-namespace utils;
+namespace Utils;
 class Encoded
 {
     private $encodedTypeIn = null;
