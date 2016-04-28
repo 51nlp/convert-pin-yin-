@@ -6518,6 +6518,18 @@ class PinYin
         return self::_formatData($pinyinData, $returnType, $isSign, $sign);
     }
 
+    public static function getPinYinWithCut($str, $minLen = 0, $maxLen = 0,
+        $upCase = 0, $dreg = 0, $returnType = 'string', $isSign = false,
+        $sign = '_')
+    {
+        $md5 = md5(date('YmdHis').microtime());
+        $pinyinData = self::getPinYin($str, $returnType, $isSign, $sign);
+        $len = strlen($str);
+        return ($minLen && $len < $minLen)
+             ? ($str . substr($md5, 0, $minLen - $len))
+             : (($maxLen && $len > $maxLen) ? substr($str, 0, $maxLen) : $str);
+    }
+
     private static function _queryPinYinTable($encodedData, $string)
     {
         $i = 0;
