@@ -6509,28 +6509,28 @@ class PinYin
     }
 
     public static function getPinYin($string, $returnType = 'string',
-        $isSign = false, $sign = '_')
+        $isSign = false, $sign = '_', $upCase = false)
     {
         self::_init();
         $string = self::$encodedClass->array_iconv($string);
         $encodedData = self::$encodedClass->computingEncoded($string);
-        $pinyinData = self::_queryPinYinTable($encodedData, $string);
+        $pinyinData = self::_queryPinYinTable($encodedData, $string, $upCase);
         return self::_formatData($pinyinData, $returnType, $isSign, $sign);
     }
 
     public static function getPinYinWithCut($str, $minLen = 0, $maxLen = 0,
-        $upCase = 0, $dreg = 0, $returnType = 'string', $isSign = false,
+        $upCase = false, $dreg = 0, $returnType = 'string', $isSign = false,
         $sign = '_')
     {
         $md5 = md5(date('YmdHis').microtime());
-        $pinyinData = self::getPinYin($str, $returnType, $isSign, $sign);
+        $pinyinData = self::getPinYin($str, $returnType, $isSign, $sign, $upCase);
         $len = strlen($pinyinData);
         return ($minLen && $len < $minLen)
              ? ($pinyinData . substr($md5, 0, $minLen - $len))
              : (($maxLen && $len > $maxLen) ? substr($pinyinData, 0, $maxLen) : $pinyinData);
     }
 
-    private static function _queryPinYinTable($encodedData, $string)
+    private static function _queryPinYinTable($encodedData, $string, $upCase)
     {
         $i = 0;
         foreach ($encodedData as &$encoded) {
@@ -6548,6 +6548,9 @@ class PinYin
                 ) {
                 $encoded = isset(self::$_pinYinTable[$encoded]) ? self::$_pinYinTable[$encoded] :
                     "";
+                if ($upCase) {
+                    $encoded = ucwords($encoded);
+                }
             } else {
                 $encoded = "";
             }
