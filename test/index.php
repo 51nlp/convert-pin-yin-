@@ -3,7 +3,7 @@ ini_set('error_reporting', E_ALL & ~E_USER_NOTICE);
 ini_set('display_errors', 1);
 define('DS', DIRECTORY_SEPARATOR);
 define('DOCROOT', realpath(__DIR__) . DS);
-require_once DOCROOT . '../bootstrap.php';
+require_once realpath(__DIR__) . '/../bootstrap.php';
 $data = '这是一个符合UTF-8标准拼音转换类，使用PHP编写（共25961字，包含20902个基本汉字+5059生僻字）'.
     '一起开始数：12345开始测试生僻字:㐀㐁㐄㐅㐆㐌㐖㐜';
 echo "演示程序执行结果如下：<br/>";

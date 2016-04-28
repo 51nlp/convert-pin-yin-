@@ -1,5 +1,3 @@
 <?php
-define('DS', DIRECTORY_SEPARATOR);
-define('DOCROOT', realpath(__DIR__) . DS);
-require_once DOCROOT . 'utils/encoded.php';
-require_once DOCROOT . 'utils/pinyin.php';
+require_once realpath(__DIR__) . '/utils/encoded.php';
+require_once realpath(__DIR__) . '/utils/pinyin.php';
