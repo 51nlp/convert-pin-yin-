@@ -6522,12 +6522,18 @@ class PinYin
         $upCase = false, $dreg = 0, $returnType = 'string', $isSign = false,
         $sign = '_')
     {
-        $md5 = md5(date('YmdHis').microtime());
+        $strlen = strlen($str);
+        $str = ($strlen > $maxLen) ? substr($str, 0, $maxLen) : $str;
         $pinyinData = self::getPinYin($str, $returnType, $isSign, $sign, $upCase);
         $len = strlen($pinyinData);
-        return ($minLen && $len < $minLen)
-             ? ($pinyinData . substr($md5, 0, $minLen - $len))
-             : (($maxLen && $len > $maxLen) ? substr($pinyinData, 0, $maxLen) : $pinyinData);
+        if ($strlen < $minLen) {
+            $md5 = md5(date('YmdHis').microtime());
+            if ($len < $minLen) {
+                return $pinyinData . substr($md5, 0, $minLen - $len);
+            }
+        }
+
+        return ($maxLen && $len > $maxLen) ? substr($pinyinData, 0, $maxLen) : $pinyinData;
     }
 
     private static function _queryPinYinTable($encodedData, $string, $upCase)
