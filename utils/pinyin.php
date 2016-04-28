@@ -6524,10 +6524,10 @@ class PinYin
     {
         $md5 = md5(date('YmdHis').microtime());
         $pinyinData = self::getPinYin($str, $returnType, $isSign, $sign);
-        $len = strlen($str);
+        $len = strlen($pinyinData);
         return ($minLen && $len < $minLen)
-             ? ($str . substr($md5, 0, $minLen - $len))
-             : (($maxLen && $len > $maxLen) ? substr($str, 0, $maxLen) : $str);
+             ? ($pinyinData . substr($md5, 0, $minLen - $len))
+             : (($maxLen && $len > $maxLen) ? substr($pinyinData, 0, $maxLen) : $pinyinData);
     }
 
     private static function _queryPinYinTable($encodedData, $string)
