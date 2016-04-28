@@ -12,28 +12,28 @@
 ###基本使用
 ```php
 
-\utils\pinyin::getPinYin($data, 'string', true);
+\Utils\PinYin::getPinYin($data, 'string', true);
 
 ```
 
 ###结果分隔
 ```php
 
-\utils\pinyin::getPinYin($data, 'string', true);
+\Utils\PinYin::getPinYin($data, 'string', true);
 
 ```
 
 ###结果指定分隔
 ```php
 
-\utils\pinyin::getPinYin($data, 'string', true, ',');
+\Utils\PinYin::getPinYin($data, 'string', true, ',');
 
 ```
 
 ###结果数组返回值
 ```php
 
-\utils\pinyin::getPinYin($data, 'array')
+\Utils\PinYin::getPinYin($data, 'array')
 
 ```
 

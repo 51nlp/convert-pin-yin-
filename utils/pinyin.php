@@ -1,7 +1,7 @@
 <?php
 namespace Utils;
 
-class pinyin
+class PinYin
 {
     private static $_pinYinTable = array(
         'e4b880' => 'yi', 'e4b881' => 'ding', 'e4b882' => 'kao', 'e4b883' => 'qi',
